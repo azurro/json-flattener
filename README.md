@@ -26,6 +26,8 @@ package pl.azurro.json.flattener.example;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import pl.azurro.json.flattener.JsonFlattener;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -37,7 +39,7 @@ public class JsonFlattenerExample {
                 + "{\"name\": \"blue\", \"val\": {\"R\": \"0\",\"G\": \"0\",\"B\": \"255\"}}]}";
         JsonObject doc = new JsonParser().parse(json).getAsJsonObject();
 
-        Map<String, String> flattened = GsonFlattener.flatten(doc);
+        Map<String, String> flattened = JsonFlattener.flatten(doc);
 
         for (Entry<String, String> e : flattened.entrySet()) {
             System.out.println(e.getKey() + "=" + e.getValue());
